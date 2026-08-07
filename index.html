@@ -322,7 +322,6 @@ function post(){
   addComment({n:ME.n,type:ME.type,photo:ME.photo,color:ME.color,time:nowLabel(),html,isNew:true});
   cBody.scrollTop=cBody.scrollHeight;
   editor.innerHTML='';updateSend();
-  if(ment.length){const names=ment.map(id=>TEAM.find(t=>t.id===id).n.split(' ')[0]);toast(`Se notificó a ${names.map(n=>'<b>'+n+'</b>').join(', ')}`);}
 }
 sendBtn.addEventListener('click',post);
 function toast(msg){const t=document.createElement('div');t.className='toast';
