@@ -38,11 +38,15 @@
   .c-body{flex:1;overflow-y:auto;padding:4px 16px;}
 
   /* comment item */
-  .item{display:flex;gap:11px;padding:13px 0;border-bottom:1px solid var(--stroke);}
+  .item{display:block;padding:13px 0;border-bottom:1px solid var(--stroke);}
+  .msg-ic{width:20px;height:20px;flex:0 0 20px;display:grid;place-items:center;color:#070F21;}
+  .msg-ic svg{width:18px;height:18px;display:block;}
   .item:last-child{border-bottom:none;}
   .ava{width:34px;height:34px;border-radius:50%;overflow:hidden;flex:0 0 34px;}
   .ava.ini{display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700;}
   .ava svg{width:100%;height:100%;display:block;}
+  .ava-ic{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;color:#4A4F5C;}
+  .ava-ic svg{width:22px;height:22px;display:block;}
   .main{flex:1;min-width:0;}
   .top{display:flex;align-items:center;gap:7px;margin-bottom:4px;}
   .tico{width:18px;height:18px;flex:0 0 18px;display:grid;place-items:center;}
@@ -52,7 +56,7 @@
   .top b{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .top .time{font-size:12px;color:var(--content-tertiary);margin-left:auto;white-space:nowrap;}
   .text{font-size:13px;color:#2A3040;line-height:1.55;word-wrap:break-word;}
-  .m{color:var(--info-fg);background:var(--info-bg);border-radius:5px;padding:0 4px;font-weight:600;white-space:nowrap;display:inline-block;}
+  .m{color:#0B8A72;background:#E4F7F0;border-radius:5px;padding:0 4px;font-weight:600;white-space:nowrap;display:inline-block;}
   @keyframes itemIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
   .item.new{animation:itemIn .22s ease both;}
 
@@ -62,7 +66,7 @@
   .plus{width:26px;height:26px;border-radius:6px;background:#F1F3F6;display:grid;place-items:center;flex:0 0 26px;color:#5A6172;margin-bottom:4px;}
   .plus svg{width:14px;height:14px;}
   .editor{flex:1;border:1px solid var(--stroke-2);border-radius:8px;background:#fff;min-height:38px;max-height:110px;overflow-y:auto;padding:9px 11px;font-size:13px;line-height:1.5;outline:none;}
-  .editor:focus{border-color:#B9E4FB;box-shadow:0 0 0 3px rgba(35,165,255,.12);}
+  .editor:focus{border-color:#8FE3CE;box-shadow:0 0 0 3px rgba(34,207,171,.16);}
   .editor:empty:before{content:attr(data-ph);color:var(--content-tertiary);}
   .editor .m{cursor:default;}
   .send{background:var(--primary);color:var(--primary-fg);border:none;border-radius:8px;font-weight:700;font-size:13px;padding:9px 16px;cursor:pointer;margin-bottom:1px;font-family:inherit;transition:transform .08s ease,background-color .12s ease;}
@@ -82,18 +86,25 @@
   .sec{position:sticky;top:0;background:var(--level-1);z-index:2;font-size:10px;letter-spacing:.5px;font-weight:700;color:var(--content-secondary);text-transform:uppercase;padding:9px 8px 5px;display:flex;justify-content:space-between;}
   .sec.sub{color:var(--content-tertiary);}
   .sec .cnt{font-weight:600;color:var(--content-tertiary);letter-spacing:0;}
-  .row{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:8px;cursor:pointer;transition:background-color .12s ease;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 8px;border-radius:8px;cursor:pointer;transition:background-color .12s ease;}
   .row.active,.row:hover{background:var(--mint-tint);}
+  .ricon{width:20px;height:20px;flex:0 0 20px;display:grid;place-items:center;color:#4A4F5C;transition:color .12s ease;}
+  .ricon svg{width:18px;height:18px;display:block;}
+  .row.active .ricon{color:#070F21;}
+  .remail{font-size:13px;font-weight:500;color:#070F21;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+  .remail .hl{color:#0B8A72;font-weight:700;}
   @keyframes rowIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
   .row.enter{animation:rowIn .19s ease both;}
   .rava{width:30px;height:30px;border-radius:50%;overflow:hidden;flex:0 0 30px;transition:transform .12s ease;}
   .rava.ini{display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700;}
   .rava svg{width:100%;height:100%;display:block;}
   .row.active .rava{transform:scale(1.07);}
-  .who{display:flex;flex-direction:column;line-height:1.25;min-width:0;}
-  .who b{font-size:13px;font-weight:600;}
+  .who{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1;}
+  .who b{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .who b .hl{color:var(--info-fg);}
-  .who span{font-size:11px;color:var(--content-secondary);}
+  .who span{font-size:11px;color:var(--content-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .who .mail{color:var(--content-secondary);}
+  .who .noname{color:var(--content-tertiary);font-style:italic;}
   .resp-dot{width:6px;height:6px;border-radius:50%;background:var(--primary);flex:0 0 6px;margin-left:auto;}
   .role-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;flex:0 0 auto;margin-left:8px;}
   .role-tag.kam{background:#EFEAFE;color:#6B45D9;}
@@ -114,8 +125,8 @@
 </head>
 <body>
   <div class="head">
-    <h1>Chat interno</h1>
-    <p>Chat interno de la cotización para el equipo de bord: coordinen y dejen contexto sin salir de la orden. Menciona con <code>@</code> a un compañero para notificarlo; envías como <b>José Ocampo</b>.</p>
+    <h1>Chat interno — solo correo</h1>
+    <p>Tanto el buscador de mención como los <b>mensajes</b> muestran el <b>correo</b> y el <b>icono .bord</b> en lugar de nombres, iniciales o fotos. Se mantienen las secciones Responsables / Todo el equipo.</p>
   </div>
 
   <div class="stage">
@@ -156,6 +167,8 @@ const IC={
   cliente:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7l7-3v17"/><path d="M10 21V4l8 3v14"/><path d="M13 9h2M13 12h2M13 15h2M6 11h1M6 14h1"/></svg>`,
   bord:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>`
 };
+/* icono .bord para las filas del buscador (subido por el usuario) */
+const BORDIC=`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.8457 2.5V2.50098C14.7601 2.5019 15.4998 3.24037 15.5 4.1543V9C15.5 10.5703 14.9419 12.0116 14.0156 13.1348C12.8247 14.5787 11.0193 15.5 9 15.5C7.42967 15.5 5.98837 14.9419 4.86523 14.0156C4.5441 13.7507 4.24927 13.4559 3.98438 13.1348V13.1338C3.05671 12.0104 2.5 10.5696 2.5 9C2.5 6.98072 3.42131 5.17532 4.86523 3.98438C5.98872 3.05643 7.43011 2.5 9 2.5H13.8457ZM8.97852 5.76562C8.29337 5.76562 7.65964 5.97734 7.13672 6.33984L6.91992 6.50391C6.19967 7.09741 5.74219 7.99528 5.74219 9C5.74219 9.78191 6.01764 10.4968 6.47852 11.0566H6.47949C6.58018 11.178 6.68819 11.2923 6.80273 11.3965L6.91992 11.4971C7.47999 11.9589 8.19695 12.2354 8.97852 12.2354C9.98289 12.2352 10.8802 11.7785 11.4736 11.0586H11.4746C11.9364 10.4985 12.2129 9.78156 12.2129 9C12.2129 7.21432 10.7641 5.76583 8.97852 5.76562Z" stroke="currentColor"/></svg>`;
 /* ---------- placeholder "photos" (illustrated avatars) ---------- */
 function portrait(bg,shirt,skin,hair){
   return `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -177,20 +190,21 @@ const PHOTO={
 /* ---------- data ---------- */
 const PAL=['#23A5FF','#885EF7','#A95C14','#E897FF','#00B188','#FC543D','#E29E28','#0E9E82','#6B45D9','#0057A7','#C7568F','#1B9F88'];
 const TEAM=[
-  {id:'fede',n:'Federico Ríos',r:'Procurement',resp:true,photo:'fede'},
-  {id:'cami',n:'Camila Torres',r:'KAM',resp:true,photo:'cami'},
-  {id:'paula',n:'Paula Castro',r:'KAM',resp:true},
-  {id:'andres',n:'Andrés Vega',r:'KAM',photo:'andres'},
-  {id:'lucia',n:'Lucía Méndez',r:'Procurement'},
-  {id:'mariana',n:'Mariana Gómez',r:'KAM',photo:'mariana'},
-  {id:'diego',n:'Diego Salas',r:'Procurement'},
-  {id:'vale',n:'Valentina Ruiz',r:'KAM'},
-  {id:'tomas',n:'Tomás Herrera',r:'Procurement'},
-  {id:'nico',n:'Nicolás Prieto',r:'Procurement'},
-  {id:'sofia',n:'Sofía Ramírez',r:'KAM'},
-  {id:'julian',n:'Julián Ortega',r:'Procurement'},
+  {id:'fede',n:'Federico Ríos',r:'Procurement',resp:true,photo:'fede',email:'federico.rios@bord.co'},
+  {id:'cami',n:'Camila Torres',r:'KAM',resp:true,photo:'cami',email:'camila.torres@bord.co'},
+  {id:'paula',n:'Paula Castro',r:'KAM',resp:true,email:'paula.castro@bord.co'},
+  {id:'andres',n:'Andrés Vega',r:'KAM',photo:'andres',email:'andres.vega@bord.co'},
+  {id:'lucia',n:'Lucía Méndez',r:'Procurement',email:'lucia.mendez@bord.co'},
+  {id:'mariana',n:'Mariana Gómez',r:'KAM',photo:'mariana',email:'mariana.gomez@bord.co'},
+  {id:'diego',n:'Diego Salas',r:'Procurement',email:'diego.salas@bord.co'},
+  {id:'nn',n:'',r:'Procurement',email:'c.morales@bord.co'},
+  {id:'vale',n:'Valentina Ruiz',r:'KAM',email:'valentina.ruiz@bord.co'},
+  {id:'tomas',n:'Tomás Herrera',r:'Procurement',email:'tomas.herrera@bord.co'},
+  {id:'nico',n:'Nicolás Prieto',r:'Procurement',email:'nicolas.prieto@bord.co'},
+  {id:'sofia',n:'Sofía Ramírez',r:'KAM',email:'sofia.ramirez@bord.co'},
+  {id:'julian',n:'Julián Ortega',r:'Procurement',email:'julian.ortega@bord.co'},
 ].map((p,i)=>({...p,color:PAL[i%PAL.length]}));
-const ME={id:'jose',n:'José Ocampo',type:'bord',color:'#885EF7'};
+const ME={id:'jose',n:'José Ocampo',email:'jose.ocampo@bord.co',type:'bord',color:'#885EF7'};
 
 const ini=n=>n.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const norm=s=>s.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
@@ -199,16 +213,17 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 
 /* avatar: foto si existe, si no iniciales */
 function avatarHTML(a){
-  if(a.photo && PHOTO[a.photo]) return `<div class="ava">${PHOTO[a.photo]}</div>`;
-  return `<div class="ava ini" style="background:${a.color||'#6F737D'}">${ini(a.n)}</div>`;
+  return `<div class="ava-ic">${BORDIC}</div>`;
 }
 
 /* seed thread */
 const SEED=[
-  {n:'Vicente Ramírez',type:'cliente',color:'#0057A7',time:'25 ene, 9:00',
-   text:'¿Podemos adelantar la entrega de las 20 laptops? Se nos movió el onboarding.'},          /* sin foto → iniciales */
-  {n:'Karla Martínez',type:'bord',photo:'karla',time:'25 ene, 10:20',
-   html:'<span class="m">@Federico Ríos</span> ¿es viable con el SLA de Colombia?'},
+  {n:'Vicente Ramírez',email:'vicente@playtoy.com',type:'cliente',time:'25 ene, 9:00',
+   text:'¿Podemos adelantar la entrega de las 20 laptops? Se nos movió el onboarding.'},
+  {n:'Karla Martínez',email:'karla.martinez@bord.co',type:'bord',time:'25 ene, 10:20',
+   html:'<span class="m">@federico.rios</span> ¿es viable con el SLA de Colombia?'},
+  {n:'',email:'c.morales@bord.co',type:'bord',time:'25 ene, 11:40',
+   text:'Subo la cotización revisada en un momento.'},
 ];
 
 const cBody=document.getElementById('cBody'),editor=document.getElementById('editor'),
@@ -218,11 +233,8 @@ let popOpen=false,activeIdx=0,visible=[];
 function addComment(c){
   const el=document.createElement('div');el.className='item'+(c.isNew?' new':'');
   const body=c.html?c.html:esc(c.text);
-  el.innerHTML=`${avatarHTML(c)}
-    <div class="main">
-      <div class="top"><b>${esc(c.n)}</b><span class="time">${esc(c.time)}</span></div>
-      <div class="text">${body}</div>
-    </div>`;
+  el.innerHTML=`<div class="top"><span class="msg-ic">${BORDIC}</span><b>${esc(c.email||c.n||'')}</b><span class="time">${esc(c.time)}</span></div>
+    <div class="text">${body}</div>`;
   cBody.appendChild(el);
 }
 SEED.forEach(addComment);
@@ -241,14 +253,16 @@ function highlight(name,q){
   const i=norm(name).indexOf(norm(q));if(i<0)return esc(name);
   return esc(name.slice(0,i))+'<span class="hl">'+esc(name.slice(i,i+q.length))+'</span>'+esc(name.slice(i+q.length));
 }
-function rowAvatar(p){
-  if(p.photo && PHOTO[p.photo]) return `<div class="rava">${PHOTO[p.photo]}</div>`;
-  return `<div class="rava ini" style="background:${p.color}">${ini(p.n)}</div>`;
+function avatarLabel(p){
+  if(p.n && p.n.trim()) return ini(p.n);
+  const local=(p.email||'?').split('@')[0];
+  const parts=local.split(/[._-]/).filter(Boolean);
+  return (parts.length>1?parts[0][0]+parts[1][0]:local.slice(0,2)).toUpperCase();
 }
 function rowHTML(p,q,idx){
   return `<div class="row" data-idx="${idx}" data-id="${p.id}">
-    ${rowAvatar(p)}
-    <div class="who"><b>${highlight(p.n,q)}</b><span>${p.r}</span></div>
+    <span class="ricon">${BORDIC}</span>
+    <span class="remail">${highlight(p.email,q)}</span>
   </div>`;
 }
 function openPop(q){
@@ -261,8 +275,8 @@ function openPop(q){
     html+=`<div class="sec sub">Todo el equipo<span class="cnt">${rest.length}</span></div>`;
     rest.forEach(p=>{visible.push(p);html+=rowHTML(p,'',idx++);});
   }else{
-    const list=TEAM.filter(p=>norm(p.n).includes(norm(q)))
-      .sort((a,b)=>(b.resp?1:0)-(a.resp?1:0)||a.n.localeCompare(b.n,'es'));
+    const list=TEAM.filter(p=>norm((p.n||'')+' '+(p.email||'')).includes(norm(q)))
+      .sort((a,b)=>(b.resp?1:0)-(a.resp?1:0)||(a.n||a.email).localeCompare(b.n||b.email,'es'));
     if(!list.length){mlist.innerHTML=`<div class="empty">Sin coincidencias para “${esc(q)}”</div>`;showPop(wasClosed);return;}
     html+=`<div class="sec">Resultados<span class="cnt">${list.length}</span></div>`;
     list.forEach(p=>{visible.push(p);html+=rowHTML(p,q,idx++);});
@@ -287,7 +301,7 @@ function select(person){
   const node=q.node,before=node.textContent.slice(0,q.atPos),after=node.textContent.slice(q.caret),parent=node.parentNode;
   const frag=document.createDocumentFragment();
   if(before)frag.appendChild(document.createTextNode(before));
-  const chip=document.createElement('span');chip.className='m pop-in';chip.contentEditable='false';chip.dataset.id=person.id;chip.textContent='@'+person.n;
+  const chip=document.createElement('span');chip.className='m pop-in';chip.contentEditable='false';chip.dataset.id=person.id;chip.textContent='@'+(person.email?person.email.split('@')[0]:person.n);
   frag.appendChild(chip);
   const space=document.createTextNode('\u00A0'+after);frag.appendChild(space);
   parent.replaceChild(frag,node);
@@ -319,7 +333,7 @@ function post(){
   const plain=parts.map(p=>p.v).join('').trim();if(!plain)return;
   const ment=[...new Set(parts.filter(p=>p.t==='m').map(p=>p.id))];
   const html=parts.map(p=>p.t==='m'?`<span class="m">${esc(p.v)}</span>`:esc(p.v)).join('');
-  addComment({n:ME.n,type:ME.type,photo:ME.photo,color:ME.color,time:nowLabel(),html,isNew:true});
+  addComment({n:ME.n,email:ME.email,type:ME.type,photo:ME.photo,color:ME.color,time:nowLabel(),html,isNew:true});
   cBody.scrollTop=cBody.scrollHeight;
   editor.innerHTML='';updateSend();
 }
